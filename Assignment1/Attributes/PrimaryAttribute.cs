@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assignment1.Attributes
+﻿namespace Assignment1.Attributes
 {
     public class PrimaryAttribute
     {
@@ -18,6 +12,15 @@ namespace Assignment1.Attributes
                 Strength = leftHandSide.Strength + rightHandSide.Strength,
                 Dexterity = leftHandSide.Dexterity + rightHandSide.Dexterity,
                 Intelligence = leftHandSide.Intelligence + rightHandSide.Intelligence
+            };
+        }
+        public static PrimaryAttribute operator -(PrimaryAttribute leftHandSide, PrimaryAttribute rightHandSide)
+        {
+            return new PrimaryAttribute
+            {
+                Strength = leftHandSide.Strength - rightHandSide.Strength,
+                Dexterity = leftHandSide.Dexterity - rightHandSide.Dexterity,
+                Intelligence = leftHandSide.Intelligence - rightHandSide.Intelligence
             };
         }
 

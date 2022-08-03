@@ -1,15 +1,9 @@
 ﻿using Assignment1.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment1.Characters
 {
     public class Rogue : Character
     {
-        public PrimaryAttribute primaryAttribute { get; set; }
         private PrimaryAttribute levelUpPrimaryAttribute = new PrimaryAttribute
         {
             Strength = 2,
@@ -19,16 +13,18 @@ namespace Assignment1.Characters
 
         public Rogue(string name) : base(name)
         {
-            this.primaryAttribute = new PrimaryAttribute
+            this.PrimaryAttribute = new PrimaryAttribute
             {
                 Strength = 2,
                 Dexterity = 6,
                 Intelligence = 1
             };
+            TotalAttribute = PrimaryAttribute;
         }
         public override void LevelUp()
         {
-            this.primaryAttribute += this.levelUpPrimaryAttribute;
+            PrimaryAttribute += levelUpPrimaryAttribute;
+            Level++;
         }
     }
 }
