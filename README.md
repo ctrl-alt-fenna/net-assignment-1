@@ -31,4 +31,5 @@ The classes are structured as follows:
     - Weapon: An item type for all the weapon types a character can equip
 
 ## Authors and acknowledgment
-Project coded by Fenna Ransijn, classes,items and attributes based on the game Diablo 2.  
+Project coded by Fenna Ransijn, classes, items and attributes based on the game Diablo 2.
+Project logo from [www.freepik.com](https://www.freepik.com/author/svetlanapaneva)  
