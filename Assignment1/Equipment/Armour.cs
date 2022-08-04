@@ -9,9 +9,9 @@ namespace Assignment1.Equipment
         public ArmourSlots ArmourSlot { get; set; }
         public enum ArmourSlots
         {
-            ArmourSlot_Head,
-            ArmourSlot_Body,
-            ArmourSlot_Legs
+            ArmourSlot_Head = 1,
+            ArmourSlot_Body = 2,
+            ArmourSlot_Legs = 3
         }
         public enum ArmourTypes
         {

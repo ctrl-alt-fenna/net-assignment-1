@@ -33,7 +33,7 @@ namespace Assignment1.MainGame.RandomCreation
                                       "Do not wave around with proper certifications!!",
                                       "Deadly and small",
                                       "Laquered firewood with magical powers"};
-        public static Item CreateWeapon(Character user)
+        public static Weapon CreateWeapon(Character user)
         {
             Random random = new Random();
             int reqLevel = Math.Min(random.Next(1, user.Level + 1), 100);
@@ -45,7 +45,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 0:
                     return new Weapon()
                     {
-                        ItemName = axeNames[(random.Next(0, axeNames.Length))],
+                        ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Axe,
@@ -56,7 +56,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 1:
                     return new Weapon()
                     {
-                        ItemName = bowNames[(random.Next(0, bowNames.Length))],
+                        ItemName = bowNames[(random.Next(0, bowNames.Length))] + " (bow)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Bow,
@@ -67,7 +67,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 2:
                     return new Weapon()
                     {
-                        ItemName = daggerNames[(random.Next(0, daggerNames.Length))],
+                        ItemName = daggerNames[(random.Next(0, daggerNames.Length))] + " (dagger)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Dagger,
@@ -78,7 +78,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 3:
                     return new Weapon()
                     {
-                        ItemName = hammerNames[(random.Next(0, hammerNames.Length))],
+                        ItemName = hammerNames[(random.Next(0, hammerNames.Length))] + " (hammer)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Hammer,
@@ -89,7 +89,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 4:
                     return new Weapon()
                     {
-                        ItemName = staffNames[(random.Next(0, staffNames.Length))],
+                        ItemName = staffNames[(random.Next(0, staffNames.Length))] + " (staff)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Staff,
@@ -100,7 +100,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 5:
                     return new Weapon()
                     {
-                        ItemName = swordNames[(random.Next(0, swordNames.Length))],
+                        ItemName = swordNames[(random.Next(0, swordNames.Length))] + " (sword)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Sword,
@@ -111,7 +111,7 @@ namespace Assignment1.MainGame.RandomCreation
                 case 6:
                     return new Weapon()
                     {
-                        ItemName = wandNames[(random.Next(0, wandNames.Length))],
+                        ItemName = wandNames[(random.Next(0, wandNames.Length))] + " (wand)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Wand,
@@ -122,7 +122,7 @@ namespace Assignment1.MainGame.RandomCreation
                 default:
                     return new Weapon()
                     {
-                        ItemName = axeNames[(random.Next(0, axeNames.Length))],
+                        ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
                         ItemRequiredLevel = reqLevel,
                         ItemSlot = Item.Slot.WeaponSlot,
                         WeaponType = Weapon.WeaponTypes.Axe,
@@ -130,7 +130,29 @@ namespace Assignment1.MainGame.RandomCreation
                         BaseDamage = damage,
                     };
             }
-
+        }
+        public static Armour CreateArmour(Character user)
+        {
+            Random random = new Random();
+            int reqLevel = Math.Min(random.Next(1, user.Level + 1), 100);
+            int strengthAdd = random.Next(1, 5);
+            int dexterityAdd = random.Next(1, 5);
+            int intelligenceAdd = random.Next(1, 5);
+            int type = random.Next(0, 4);
+            int armourSlot = random.Next(1, 4);
+            return new Armour()
+            {
+                ItemName = "A good piece of armour",
+                ItemRequiredLevel = reqLevel,
+                ArmourType = (Armour.ArmourTypes)type,
+                ArmourSlot = (Armour.ArmourSlots)armourSlot,
+                PrimaryAttribute = new Attributes.PrimaryAttribute()
+                {
+                    Strength = strengthAdd,
+                    Dexterity = dexterityAdd,
+                    Intelligence = intelligenceAdd
+                }
+            };
         }
     }
 }

@@ -24,7 +24,9 @@ namespace Assignment1.Characters
         }
         public override void LevelUp()
         {
+            TotalAttribute -= PrimaryAttribute;
             PrimaryAttribute += LevelUpPrimaryAttributes;
+            TotalAttribute += PrimaryAttribute;
             Level++;
         }
         public override double Damage()
@@ -34,8 +36,7 @@ namespace Assignment1.Characters
             {
                 currDamage = ((Weapon)Inventory.GetItem(Item.Slot.WeaponSlot)).DPS();
             }
-            currDamage = (currDamage * (1 + TotalAttribute.Strength / 100));
-            Console.WriteLine(Name + " damage enemy for " + currDamage + " damage points!");
+            currDamage = Math.Round(currDamage * (1 + TotalAttribute.Strength / 100),2);
             return currDamage;
         }
     }

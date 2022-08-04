@@ -2,9 +2,9 @@
 {
     public class PrimaryAttribute
     {
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Intelligence { get; set; }
+        public double Strength { get; set; }
+        public double Dexterity { get; set; }
+        public double Intelligence { get; set; }
         public static PrimaryAttribute operator +(PrimaryAttribute leftHandSide, PrimaryAttribute rightHandSide)
         {
             return new PrimaryAttribute

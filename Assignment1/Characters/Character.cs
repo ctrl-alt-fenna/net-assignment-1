@@ -1,7 +1,7 @@
 ﻿using Assignment1.Attributes;
 using Assignment1.CustomExceptions;
 using Assignment1.Equipment;
-
+using System.Text;
 namespace Assignment1
 {
     public abstract class Character
@@ -21,6 +21,16 @@ namespace Assignment1
         }
         public abstract void LevelUp();
         public abstract double Damage();
+        public void CharacterSheet()
+        {
+            StringBuilder sb = new StringBuilder("Character Sheet:\n", 255);
+            sb.Append(Name + ": Level " + Level + '\n');
+            sb.Append("Strength: Base " + PrimaryAttribute.Strength + " + "  + (TotalAttribute.Strength - PrimaryAttribute.Strength) + '\n');
+            sb.Append("Dexterity: Base " + PrimaryAttribute.Dexterity + " + " + (TotalAttribute.Dexterity - PrimaryAttribute.Dexterity) + '\n');
+            sb.Append("Intelligence: Base " + PrimaryAttribute.Intelligence + " + " + (TotalAttribute.Intelligence - PrimaryAttribute.Intelligence) + '\n');
+            sb.Append("Damage: " + Damage());
+            Console.WriteLine(sb);
+        }
         public string EquipItem(Item item)
         {
             try
@@ -41,12 +51,14 @@ namespace Assignment1
                         {
                             TotalAttribute += newArmour.PrimaryAttribute;
                         }
+                        Inventory.AddItem(item);
+                        return "New armour equipped!";
                     }
                     Inventory.AddItem(item);
-                    return "Item succesfully equiped!";
+                    return "New weapon equipped!";
                 }
-                else if (item.ItemSlot == Item.Slot.ArmourSlot) throw new InvalidArmourException("Character type not allowed to equip current item");
-                else if (item.ItemSlot == Item.Slot.WeaponSlot) throw new InvalidWeaponException("Character type not allowed to equip current item");
+                else if (item.ItemSlot == Item.Slot.ArmourSlot) throw new InvalidArmourException("Character type not allowed to equip current armour");
+                else if (item.ItemSlot == Item.Slot.WeaponSlot) throw new InvalidWeaponException("Character type not allowed to equip current weapon");
                 else throw new InvalidItemException();
             }
             catch (InvalidWeaponException exception)

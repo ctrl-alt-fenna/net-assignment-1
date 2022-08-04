@@ -15,6 +15,7 @@ namespace Assignment1.MainGame.Levels
                 bool completedChar = CreateCharacter();
                 if (completedChar)
                 {
+                    user.CharacterSheet();
                     Level1.LevelOne(user);
                 }
                 else IsRunning = false;
