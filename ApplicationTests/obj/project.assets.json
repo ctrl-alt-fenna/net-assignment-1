@@ -1671,14 +1671,14 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Assignment1/1.0.0": {
+      "ConsoleRPG/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/Assignment1.dll": {}
+          "bin/placeholder/ConsoleRPG.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Assignment1.dll": {}
+          "bin/placeholder/ConsoleRPG.dll": {}
         }
       }
     }
@@ -5977,15 +5977,15 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Assignment1/1.0.0": {
+    "ConsoleRPG/1.0.0": {
       "type": "project",
-      "path": "../Assignment1/Assignment1.csproj",
-      "msbuildProject": "../Assignment1/Assignment1.csproj"
+      "path": "../Assignment1/ConsoleRPG.csproj",
+      "msbuildProject": "../Assignment1/ConsoleRPG.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Assignment1 >= 1.0.0",
+      "ConsoleRPG >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.1",
@@ -5999,9 +5999,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj",
-      "projectName": "Assignment1Tests",
-      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj",
+      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
+      "projectName": "ConsoleRPGTests",
+      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
       "packagesPath": "C:\\Users\\fenna\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\obj\\",
       "projectStyle": "PackageReference",
@@ -6024,8 +6024,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\Assignment1.csproj": {
-              "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\Assignment1.csproj"
+            "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj": {
+              "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj"
             }
           }
         }

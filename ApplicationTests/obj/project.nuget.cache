@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "akCakTHd5KC3t38Y6BKSTboM7J+cIbzcBG0cu6bJbSXMyxPA9grxYN0sNHD68UBi7kc089hezw3slMsCoJGTqw==",
+  "dgSpecHash": "5n4q1zEFGaxgEqIEZYUcKid4qRkVZMmNEoCfjZDKwfdJZ4OoyFgZxd4xpsP2wetFTWiqnwc32q5vK54zdvLWig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj",
+  "projectFilePath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fenna\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\fenna\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

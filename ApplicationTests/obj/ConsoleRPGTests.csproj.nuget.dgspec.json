@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj": {}
+    "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj": {
+    "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj",
-        "projectName": "Assignment1Tests",
-        "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\Assignment1Tests.csproj",
+        "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
+        "projectName": "ConsoleRPGTests",
+        "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
         "packagesPath": "C:\\Users\\fenna\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\obj\\",
         "projectStyle": "PackageReference",

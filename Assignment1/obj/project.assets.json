@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\Assignment1.csproj",
-      "projectName": "Assignment1",
-      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\Assignment1.csproj",
+      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj",
+      "projectName": "ConsoleRPG",
+      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj",
       "packagesPath": "C:\\Users\\fenna\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\obj\\",
       "projectStyle": "PackageReference",
