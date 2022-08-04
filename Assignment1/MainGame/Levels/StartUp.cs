@@ -12,10 +12,12 @@ namespace Assignment1.MainGame.Levels
             IsRunning = true;
             while (IsRunning)
             {
+                Console.Clear();
                 bool completedChar = CreateCharacter();
+                // Wait for character to be created succesfully before entering level 1
                 if (completedChar)
                 {
-                    user.CharacterSheet();
+                    Console.Clear();
                     Level1.LevelOne(user);
                 }
                 else IsRunning = false;
@@ -23,20 +25,27 @@ namespace Assignment1.MainGame.Levels
         }
         public static bool CreateCharacter()
         {
+            // Setup charactername
             Console.WriteLine("What name do you wish to go by?");
             UserName = Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("Username is now " + UserName);
+            // User picks characterclass based on printed options
             Console.WriteLine("What class do you wish to be? (Enter 0 to exit)");
             ShowClassOptions();
             int userClass = int.Parse(Console.ReadLine());
+            // Checks if user wants to exit character creation
             if (userClass == 0) return false;
+            // User entered wrong input
             while (userClass < 0 || userClass > 4)
             {
+                Console.Clear();
                 Console.WriteLine("INVALID INPUT: What class do you wish to be?");
                 ShowClassOptions();
                 userClass = int.Parse(Console.ReadLine());
 
             }
+            // Sets up character with UserName and class selected by user
             switch (userClass)
             {
                 case 1:
@@ -63,8 +72,8 @@ namespace Assignment1.MainGame.Levels
                         return true;
                         break;
                     }
+                // Should never be reached, but C# wants return from all paths
                 default:
-                    Console.WriteLine("Invalid userinput. Exiting...");
                     return false;
             }
         }

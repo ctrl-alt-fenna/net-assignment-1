@@ -11,15 +11,15 @@ namespace ApplicationTests
             double expected = 1 * (1 + mage.PrimaryAttribute.Intelligence / 100);
             double actual = mage.Damage();
             Assert.True(expected == actual && mage.Level == 1);
-        }        
+        }
         [Fact]
         public void CreateCharacter_Ranger_ShouldReturnCorrectDamage()
         {
             Ranger ranger = new Ranger("Robin Hood");
-            double expected = 1 * (1 + ranger.PrimaryAttribute.Dexterity/ 100);
+            double expected = 1 * (1 + ranger.PrimaryAttribute.Dexterity / 100);
             double actual = ranger.Damage();
             Assert.True(expected == actual && ranger.Level == 1);
-        }        
+        }
         [Fact]
         public void CreateCharacter_Warrior_ShouldReturnCorrectDamage()
         {
@@ -27,7 +27,7 @@ namespace ApplicationTests
             double expected = 1 * (1 + warrior.PrimaryAttribute.Strength / 100);
             double actual = warrior.Damage();
             Assert.True(expected == actual && warrior.Level == 1);
-        }        
+        }
         [Fact]
         public void CreateCharacter_Rogue_ShouldReturnCorrectDamage()
         {
@@ -44,7 +44,7 @@ namespace ApplicationTests
             mage.LevelUp();
             PrimaryAttribute actual = mage.PrimaryAttribute;
             Assert.True(expected.IsEqual(actual) && mage.Level == 2);
-        }        
+        }
         [Fact]
         public void LevelUp_Ranger_ShouldReturnCorrectAttributes()
         {
@@ -53,7 +53,7 @@ namespace ApplicationTests
             ranger.LevelUp();
             PrimaryAttribute actual = ranger.PrimaryAttribute;
             Assert.True(expected.IsEqual(actual) && ranger.Level == 2);
-        }        
+        }
         [Fact]
         public void LevelUp_Warrior_ShouldReturnCorrectAttributes()
         {
@@ -62,7 +62,7 @@ namespace ApplicationTests
             warrior.LevelUp();
             PrimaryAttribute actual = warrior.PrimaryAttribute;
             Assert.True(expected.IsEqual(actual) && warrior.Level == 2);
-        }        
+        }
         [Fact]
         public void LevelUp_Rogue_ShouldReturnCorrectAttributes()
         {

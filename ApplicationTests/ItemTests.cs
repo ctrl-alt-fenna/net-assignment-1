@@ -1,6 +1,6 @@
+using Assignment1.Characters;
 using Assignment1.CustomExceptions;
 using Assignment1.Equipment;
-using Assignment1.Characters;
 using Assignment1Tests;
 
 namespace ApplicationTests;
@@ -10,31 +10,27 @@ public class ItemTests
     public void EquipItem_WarriorBow_ShouldThrow()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Weapon bow = new Weapon()
-            {
-                ItemRequiredLevel = 1,
-                ItemSlot = Item.Slot.WeaponSlot,
-                WeaponType = Weapon.WeaponTypes.Bow
-            };
+            Weapon baseBow = Fixtures.baseBow();
             string expected = "Character type not allowed to equip current weapon";
-            string actual = Assert.Throws<InvalidWeaponException>(() => { warrior.EquipItem(bow);}).Message;
+            // Act
+            string actual = Assert.Throws<InvalidWeaponException>(() => { warrior.EquipItem(baseBow); }).Message;
+            // Assert
             Assert.Equal(expected, actual);
         }
-    }    
+    }
     [Fact]
     public void EquipItem_WarriorHighLevelAxe_ShouldThrow()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Weapon bow = new Weapon()
-            {
-                ItemRequiredLevel = 2,
-                ItemSlot = Item.Slot.WeaponSlot,
-                WeaponType = Weapon.WeaponTypes.Axe
-            };
-            string expected = "Current level is too low to equip item: " + bow.ItemRequiredLevel + " > " + warrior.Level;
-            string actual = Assert.Throws<InvalidWeaponException>(() => { warrior.EquipItem(bow);}).Message;
+            Weapon expertAxe = Fixtures.expertAxe();
+            string expected = "Current level is too low to equip item: " + expertAxe.ItemRequiredLevel + " > " + warrior.Level;
+            // Act
+            string actual = Assert.Throws<InvalidWeaponException>(() => { warrior.EquipItem(expertAxe); }).Message;
+            // Assert
             Assert.Equal(expected, actual);
         }
     }
@@ -42,19 +38,13 @@ public class ItemTests
     public void EquipItem_WarriorCloth_ShouldThrow()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Armour plate = new Armour()
-            {
-                ItemRequiredLevel = 1,
-                ArmourSlot = Item.ArmourSlots.Body,
-                ArmourType = Armour.ArmourTypes.Cloth,
-                PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-                {
-                    Dexterity = 5
-                }
-            };
+            Armour baseClothHead = Fixtures.baseClothHead();
             string expected = "Character type not allowed to equip current armour";
-            string actual = Assert.Throws<InvalidArmourException>(() => { warrior.EquipItem(plate); }).Message;
+            // Act
+            string actual = Assert.Throws<InvalidArmourException>(() => { warrior.EquipItem(baseClothHead); }).Message;
+            // Assert
             Assert.Equal(expected, actual);
         }
     }
@@ -62,136 +52,85 @@ public class ItemTests
     public void EquipItem_WarriorHighLevelPlate_ShouldThrow()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Armour plate = new Armour()
-            {
-                ItemRequiredLevel = 2,
-                ArmourSlot = Item.ArmourSlots.Body,
-                ArmourType = Armour.ArmourTypes.Plate,
-                PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-                {
-                    Strength = 5
-                }
-            };
-            string expected = "Current level is too low to equip item: " + plate.ItemRequiredLevel + " > " + warrior.Level;
-            string actual = Assert.Throws<InvalidArmourException>(() => { warrior.EquipItem(plate);}).Message;
+            Armour expertPlateHead = Fixtures.expertPlateHead();
+            string expected = "Current level is too low to equip item: " + expertPlateHead.ItemRequiredLevel + " > " + warrior.Level;
+            // Act
+            string actual = Assert.Throws<InvalidArmourException>(() => { warrior.EquipItem(expertPlateHead); }).Message;
+            // Assert
             Assert.Equal(expected, actual);
         }
-    }    
+    }
     [Fact]
     public void EquipItem_WarriorPlate_ShouldSucceed()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Armour plate = new Armour()
-            {
-                ItemRequiredLevel = 1,
-                ArmourSlot = Item.ArmourSlots.Body,
-                ArmourType = Armour.ArmourTypes.Plate,
-                PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-                {
-                    Strength = 5
-                }
-            };
+            Armour basePlateHead = Fixtures.basePlateHead();
             string expected = "New armour equipped!";
-            string actual = warrior.EquipItem(plate);
+            // Act
+            string actual = warrior.EquipItem(basePlateHead);
+            // Assert
             Assert.Equal(expected, actual);
         }
-    }    
+    }
     [Fact]
     public void EquipItem_WarriorAxe_ShouldSucceed()
     {
         {
+            // Arrange
             Warrior warrior = Fixtures.Warrior();
-            Weapon axe = new Weapon()
-            {
-                ItemRequiredLevel = 1,
-                WeaponType = Weapon.WeaponTypes.Axe,
-                ItemSlot = Item.Slot.WeaponSlot
-            };
+            Weapon baseAxe = Fixtures.baseAxe();
             string expected = "New weapon equipped!";
-            string actual = warrior.EquipItem(axe);
+            // Act
+            string actual = warrior.EquipItem(baseAxe);
+            // Assert
             Assert.Equal(expected, actual);
         }
     }
     [Fact]
     public void Damage_NoWeapon_ShouldOutputBaseStat()
     {
+        // Arrange
         Warrior warrior = Fixtures.Warrior();
         double expected = 1 * (1 + warrior.TotalAttribute.Strength / 100);
+        // Act
         double actual = warrior.Damage();
+        // Assert
         Assert.Equal(expected, actual);
-    }    
+    }
     [Fact]
     public void Damage_AxeWeapon_ShouldOutputBaseStatAndAxeDPS()
     {
+        // Arrange
         Warrior warrior = Fixtures.Warrior();
-        Weapon axe = new Weapon()
-        {
-            ItemName = "axe",
-            ItemRequiredLevel = 1,
-            ItemSlot = Item.Slot.WeaponSlot,
-            WeaponType = Weapon.WeaponTypes.Axe,
-            AttacksPerSecond = 15,
-            BaseDamage = 10
-        };
-        warrior.EquipItem(axe);
+        Weapon baseAxe = Fixtures.baseAxe();
         double expected = (15 * 10) * (1 + (warrior.TotalAttribute.Strength / 100));
+        // Act
+        warrior.EquipItem(baseAxe);
         double actual = warrior.Damage();
+        // Assert
         Assert.Equal(expected, actual);
-    }    
+    }
     [Fact]
     public void Damage_AxeWeaponAllArmour_ShouldOutputBaseStatAndAxeDPS()
     {
+        // Arrange
         Warrior warrior = Fixtures.Warrior();
-        Weapon axe = new Weapon()
-        {
-            ItemName = "axe",
-            ItemRequiredLevel = 1,
-            ItemSlot = Item.Slot.WeaponSlot,
-            WeaponType = Weapon.WeaponTypes.Axe,
-            AttacksPerSecond = 15,
-            BaseDamage = 10
-        };
-        Armour plateHead = new Armour()
-        {
-            ItemSlot = Item.Slot.ArmourSlot,
-            ArmourSlot = Item.ArmourSlots.Head,
-            ItemRequiredLevel = 1,
-            ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-            {
-                Strength = 5
-            }
-        };        
-        Armour plateBody = new Armour()
-        {
-            ItemSlot = Item.Slot.ArmourSlot,
-            ArmourSlot = Item.ArmourSlots.Body,
-            ItemRequiredLevel = 1,
-            ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-            {
-                Strength = 5
-            }
-        };        
-        Armour plateLegs = new Armour()
-        {
-            ItemSlot = Item.Slot.ArmourSlot,
-            ArmourSlot = Item.ArmourSlots.Legs,
-            ItemRequiredLevel = 1,
-            ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
-            {
-                Strength = 5
-            }
-        };
-        warrior.EquipItem(axe);
-        warrior.EquipItem(plateLegs);
-        warrior.EquipItem(plateBody);
-        warrior.EquipItem(plateHead);
+        Weapon baseAxe = Fixtures.baseAxe();
+        Armour basePlateHead = Fixtures.basePlateHead();
+        Armour basePlateBody = Fixtures.basePlateBody();
+        Armour basePLateLegs = Fixtures.basePlateLegs();
+        warrior.EquipItem(baseAxe);
+        warrior.EquipItem(basePlateHead);
+        warrior.EquipItem(basePlateBody);
+        warrior.EquipItem(basePLateLegs);
         double expected = (15 * 10) * (1 + (warrior.TotalAttribute.Strength / 100));
+        // Act
         double actual = warrior.Damage();
+        // Assert
         Assert.Equal(expected, actual);
     }
 }

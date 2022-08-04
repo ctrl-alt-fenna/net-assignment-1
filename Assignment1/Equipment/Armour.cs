@@ -13,6 +13,12 @@ namespace Assignment1.Equipment
             Mail,
             Plate
         }
+        /// <summary>
+        /// Function to check if current charactertype matches allowed type for given armourtype
+        /// </summary>
+        /// <param name="c">A character object</param>
+        /// <returns>True if character c is of correct class for given armour, false if not</returns>
+        /// <exception cref="InvalidArmourException">Thrown if character c is not able/allowed to equip armour in the current state</exception>
         public override bool AllowEquip(Character c)
         {
             if (c.Level >= ItemRequiredLevel)

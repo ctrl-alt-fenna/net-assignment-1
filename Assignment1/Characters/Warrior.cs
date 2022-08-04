@@ -34,7 +34,7 @@ namespace Assignment1.Characters
             {
                 currDamage = ((Weapon)Inventory.GetItem(Item.Slot.WeaponSlot)).DPS();
             }
-            currDamage = Math.Round(currDamage * (1 + TotalAttribute.Strength / 100),2);
+            currDamage = Math.Round(currDamage * (1 + TotalAttribute.Strength / 100), 2);
             return currDamage;
         }
     }

@@ -9,9 +9,22 @@ namespace Assignment1
         public string Name { get; set; }
         public int Level { get; set; }
         public Inventory Inventory { get; set; }
+        /// <summary>
+        /// Base Stats for any given character
+        /// </summary>
         public PrimaryAttribute PrimaryAttribute { get; set; }
+        /// <summary>
+        /// The LevelUp stats for any given character to add once a character levels up
+        /// </summary>
         public PrimaryAttribute LevelUpPrimaryAttributes;
+        /// <summary>
+        /// The Total of primary attributes, including the Attributes given from the armour stats. 
+        /// </summary>
         public PrimaryAttribute TotalAttribute { get; set; }
+        /// <summary>
+        /// Sets up characters to start with empty inventory and Level 1.
+        /// </summary>
+        /// <param name="name">String of username</param>
         public Character(string name)
         {
             TotalAttribute = PrimaryAttribute;
@@ -19,18 +32,37 @@ namespace Assignment1
             Level = 1;
             Name = name;
         }
+        /// <summary>
+        /// Levels up character (Implemented in specific classes)
+        /// </summary>
         public abstract void LevelUp();
+        /// <summary>
+        /// Function to return Damage current character can induce based on armour, weapon and character stats (Implemented differenlty for each Character class)
+        /// </summary>
+        /// <returns>Double of damage character can induce</returns>
         public abstract double Damage();
+        /// <summary>
+        /// Function to print charactersheet
+        /// </summary>
         public void CharacterSheet()
         {
-            StringBuilder sb = new StringBuilder("Character Sheet:\n", 255);
+            StringBuilder sb = new StringBuilder(".........................\nCharacter Sheet:\n", 255);
             sb.Append(Name + ": Level " + Level + '\n');
-            sb.Append("Strength: Base " + PrimaryAttribute.Strength + " + "  + (TotalAttribute.Strength - PrimaryAttribute.Strength) + '\n');
-            sb.Append("Dexterity: Base " + PrimaryAttribute.Dexterity + " + " + (TotalAttribute.Dexterity - PrimaryAttribute.Dexterity) + '\n');
-            sb.Append("Intelligence: Base " + PrimaryAttribute.Intelligence + " + " + (TotalAttribute.Intelligence - PrimaryAttribute.Intelligence) + '\n');
-            sb.Append("Damage: " + Damage());
+            sb.Append("Strength: Base " + PrimaryAttribute.Strength + " + " + (TotalAttribute.Strength - PrimaryAttribute.Strength) + " (Equipment Bonus) \n");
+            sb.Append("Dexterity: Base " + PrimaryAttribute.Dexterity + " + " + (TotalAttribute.Dexterity - PrimaryAttribute.Dexterity) + " (Equipment Bonus) \n");
+            sb.Append("Intelligence: Base " + PrimaryAttribute.Intelligence + " + " + (TotalAttribute.Intelligence - PrimaryAttribute.Intelligence) + " (Equipment Bonus) \n");
+            sb.Append("Damage: " + Damage() + "\n.........................");
             Console.WriteLine(sb);
         }
+        /// <summary>
+        /// Function to try to equip current item with current character
+        /// </summary>
+        /// <param name="item">Item object</param>
+        /// <returns>A string if successful, or a custom exception if not</returns>
+        /// <exception cref="InvalidItemException">Thrown if character is trying to access invalid item</exception>
+        /// <exception cref="InvalidWeaponException">Thrown if character is of wrong class/level for given weapon</exception>
+        /// <exception cref="InvalidArmourException">Thrown if character is of wrong class/level for given armour</exception>
+        /// <exception cref="Exception">Thrown if somehow there was an error along the way</exception>
         public string EquipItem(Item item)
         {
             try
@@ -42,11 +74,11 @@ namespace Assignment1
                         Armour newArmour = (Armour)item;
                         try
                         {
-                            Armour oldArmour = (Armour) Inventory.GetItem(Item.Slot.ArmourSlot);
+                            Armour oldArmour = (Armour)Inventory.GetItem(Item.Slot.ArmourSlot);
                             if (oldArmour.ArmourSlot == newArmour.ArmourSlot)
                             {
-                            TotalAttribute -= oldArmour.PrimaryAttribute;
-                            TotalAttribute += newArmour.PrimaryAttribute;
+                                TotalAttribute -= oldArmour.PrimaryAttribute;
+                                TotalAttribute += newArmour.PrimaryAttribute;
                             }
                         }
                         // Couldn't find armour in inventory so add TotalAttribute with new armour only

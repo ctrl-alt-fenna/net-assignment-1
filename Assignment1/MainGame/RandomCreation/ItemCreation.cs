@@ -33,6 +33,11 @@ namespace Assignment1.MainGame.RandomCreation
                                       "Do not wave around with proper certifications!!",
                                       "Deadly and small",
                                       "Laquered firewood with magical powers"};
+        /// <summary>
+        /// Function to create random weapon for user
+        /// </summary>
+        /// <param name="user">A character object</param>
+        /// <returns>A weapon with randomized stats like type, requiredLevel and damage</returns>
         public static Weapon CreateWeapon(Character user)
         {
             Random random = new Random();
@@ -131,6 +136,11 @@ namespace Assignment1.MainGame.RandomCreation
                     };
             }
         }
+        /// <summary>
+        /// A function to create random armour for the user to equip
+        /// </summary>
+        /// <param name="user">A character object</param>
+        /// <returns>A piece of armour with randomized stats, like requiredLevel, type and primaryAttributes</returns>
         public static Armour CreateArmour(Character user)
         {
             Random random = new Random();
