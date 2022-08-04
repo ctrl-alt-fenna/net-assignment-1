@@ -6,16 +6,16 @@ namespace Assignment1.Characters
     {
         public Rogue(string name) : base(name)
         {
-            LevelUpPrimaryAttributes = new PrimaryAttribute
+            PrimaryAttribute = new PrimaryAttribute
             {
                 Strength = 2,
                 Dexterity = 6,
                 Intelligence = 1
             };
-            PrimaryAttribute = new PrimaryAttribute
+            LevelUpPrimaryAttributes = new PrimaryAttribute
             {
-                Strength = 2,
-                Dexterity = 6,
+                Strength = 1,
+                Dexterity = 4,
                 Intelligence = 1
             };
             TotalAttribute = PrimaryAttribute;

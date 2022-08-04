@@ -67,7 +67,7 @@ namespace Assignment1.MainGame.Levels
                 {
                     Console.WriteLine("You attack with all your might...\n");
                     Thread.Sleep(1500);
-                    Console.WriteLine("Damaged Ghoul with " + user.Damage());
+                    Console.WriteLine("Damaged Ogre with " + user.Damage());
                     ogreHealth =  Math.Round(ogreHealth - user.Damage(), 2);
                     Console.WriteLine("Ogre is now at " + ogreHealth);
                 }

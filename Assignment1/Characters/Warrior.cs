@@ -4,19 +4,17 @@ namespace Assignment1.Characters
 {
     public class Warrior : Character
     {
-        public Inventory inventory { get; set; }
         public Warrior(string name) : base(name)
         {
-            inventory = new Inventory();
-            LevelUpPrimaryAttributes = new PrimaryAttribute
-            {
-                Strength = 1,
-                Dexterity = 4,
-                Intelligence = 1
-            };
             PrimaryAttribute = new PrimaryAttribute
             {
                 Strength = 5,
+                Dexterity = 2,
+                Intelligence = 1
+            };
+            LevelUpPrimaryAttributes = new PrimaryAttribute
+            {
+                Strength = 3,
                 Dexterity = 2,
                 Intelligence = 1
             };

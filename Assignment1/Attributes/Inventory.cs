@@ -5,7 +5,7 @@ namespace Assignment1.Attributes
 {
     public class Inventory
     {
-        private static Dictionary<Item.Slot, Item>? inventoryDictionary { get; set; }
+        private Dictionary<Item.Slot, Item>? inventoryDictionary { get; set; }
         public Inventory()
         {
             inventoryDictionary = new Dictionary<Item.Slot, Item>();
@@ -24,8 +24,8 @@ namespace Assignment1.Attributes
             if (inventoryDictionary == null) throw new InvalidItemException("Inventory is empty");
             if (itemSlot == Item.Slot.WeaponSlot)
                 return (Weapon)inventoryDictionary[itemSlot];
-            //if (itemSlot == Item.Slot.ArmourSlots_Legs)
-            //    return (Armour) inventoryDictionary[itemSlot];
+            if (itemSlot == Item.Slot.ArmourSlot)
+                return (Armour)inventoryDictionary[itemSlot];
             else return inventoryDictionary[itemSlot];
         }
     }

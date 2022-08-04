@@ -6,13 +6,6 @@ namespace Assignment1.Equipment
     {
         public PrimaryAttribute PrimaryAttribute { get; set; }
         public ArmourTypes ArmourType { get; set; }
-        public ArmourSlots ArmourSlot { get; set; }
-        public enum ArmourSlots
-        {
-            ArmourSlot_Head = 1,
-            ArmourSlot_Body = 2,
-            ArmourSlot_Legs = 3
-        }
         public enum ArmourTypes
         {
             Cloth,

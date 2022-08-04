@@ -42,11 +42,14 @@ namespace Assignment1
                         Armour newArmour = (Armour)item;
                         try
                         {
-                            Armour oldArmour = (Armour)Inventory.GetItem(Item.Slot.ArmourSlot);
+                            Armour oldArmour = (Armour) Inventory.GetItem(Item.Slot.ArmourSlot);
+                            if (oldArmour.ArmourSlot == newArmour.ArmourSlot)
+                            {
                             TotalAttribute -= oldArmour.PrimaryAttribute;
                             TotalAttribute += newArmour.PrimaryAttribute;
+                            }
                         }
-                        // Cannot fetch inventory, so add TotalAttribute anew
+                        // Couldn't find armour in inventory so add TotalAttribute with new armour only
                         catch
                         {
                             TotalAttribute += newArmour.PrimaryAttribute;

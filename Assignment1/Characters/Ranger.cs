@@ -6,16 +6,16 @@ namespace Assignment1.Characters
     {
         public Ranger(string name) : base(name)
         {
-            LevelUpPrimaryAttributes = new PrimaryAttribute
-            {
-                Strength = 1,
-                Dexterity = 5,
-                Intelligence = 1
-            };
             PrimaryAttribute = new PrimaryAttribute
             {
                 Strength = 1,
                 Dexterity = 7,
+                Intelligence = 1
+            };
+            LevelUpPrimaryAttributes = new PrimaryAttribute
+            {
+                Strength = 1,
+                Dexterity = 5,
                 Intelligence = 1
             };
             TotalAttribute = PrimaryAttribute;

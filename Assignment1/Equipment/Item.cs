@@ -4,12 +4,19 @@
     {
         public string? ItemName { get; set; }
         public Slot ItemSlot { get; set; }
+        public ArmourSlots ArmourSlot { get; set; }
         public int ItemRequiredLevel { get; set; }
         public enum Slot
         {
             WeaponSlot,
             ArmourSlot,
             EquipmentSlot
+        }
+        public enum ArmourSlots
+        {
+            Body = 1,
+            Head = 2,
+            Legs = 3
         }
         /// <summary>
         /// Function to check whether a character is able to equip item. A character may equip an

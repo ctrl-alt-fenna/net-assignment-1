@@ -6,17 +6,17 @@ namespace Assignment1.Characters
     {
         public Mage(string name) : base(name)
         {
-            LevelUpPrimaryAttributes = new PrimaryAttribute
-            {
-                Strength = 1,
-                Dexterity = 1,
-                Intelligence = 5
-            };
             PrimaryAttribute = new PrimaryAttribute
             {
                 Strength = 1,
                 Dexterity = 1,
                 Intelligence = 8
+            };
+            LevelUpPrimaryAttributes = new PrimaryAttribute
+            {
+                Strength = 1,
+                Dexterity = 1,
+                Intelligence = 5
             };
             TotalAttribute = PrimaryAttribute;
         }
