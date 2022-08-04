@@ -3,6 +3,9 @@ using Assignment1.Characters;
 using Assignment1.Equipment;
 namespace TestData
 {
+    /// <summary>
+    /// Class with the 4 classes as re-usable testing characters
+    /// </summary>
     public class TestingCharacters
     {
         public static Warrior warriorHercules = new Warrior("Hercules");
@@ -10,6 +13,39 @@ namespace TestData
         public static Ranger rangerRobin = new Ranger("Robin");
         public static Rogue rogueJohn = new Rogue("John");
     }
+    /// <summary>
+    /// Class with the 3 base PrimaryAttributes for the 4 character-classes
+    /// </summary>
+    public class BaseAttributesTestingCharacters
+    {
+        public static PrimaryAttribute mageBasePrimary = new PrimaryAttribute()
+        {
+            Strength = 1,
+            Dexterity = 1,
+            Intelligence = 8
+        };
+        public static PrimaryAttribute rangerBasePrimary = new PrimaryAttribute()
+        {
+            Strength = 1,
+            Dexterity = 7,
+            Intelligence = 1
+        };
+        public static PrimaryAttribute rogueBasePrimary = new PrimaryAttribute()
+        {
+            Strength = 2,
+            Dexterity = 6,
+            Intelligence = 1
+        };
+        public static PrimaryAttribute warriorBasePrimary = new PrimaryAttribute()
+        {
+            Strength = 5,
+            Dexterity = 2,
+            Intelligence = 1
+        };
+    }
+    /// <summary>
+    /// Class with all the main weapons at level 1
+    /// </summary>
     public class BasicLevelTestingWeapons
     {
         public static Weapon testingAxe = new Weapon()
@@ -55,6 +91,9 @@ namespace TestData
             WeaponType = Weapon.WeaponTypes.Wand
         };
     }
+    /// <summary>
+    /// Class with all the main weapons at level 1000
+    /// </summary>
     public class HighLevelTestingWeapons
     {
         public static Weapon epicStaff = new Weapon()
@@ -100,6 +139,9 @@ namespace TestData
             WeaponType = Weapon.WeaponTypes.Wand
         };
     }
+    /// <summary>
+    /// Class with all the main armourtypes at level 1
+    /// </summary>
     public class BasicLevelTestingArmour
     {
         public static Armour testingHeadCloth = new Armour()
@@ -135,6 +177,9 @@ namespace TestData
             ArmourSlot = Armour.ArmourSlots.ArmourSlot_Head
         };
     }
+    /// <summary>
+    /// Class with all the main armourtypes at level 1000
+    /// </summary>
     public class HighLevelTestingArmour
     {
         public static Armour epicHeadCloth = new Armour()

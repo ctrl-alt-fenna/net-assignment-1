@@ -23,6 +23,12 @@
                 Intelligence = leftHandSide.Intelligence - rightHandSide.Intelligence
             };
         }
+        public bool IsEqual(PrimaryAttribute rightHandSide)
+        {
+            return Strength == rightHandSide.Strength &&
+                   Dexterity == rightHandSide.Dexterity &&
+                   Intelligence == rightHandSide.Intelligence;
+        }
 
     }
 }

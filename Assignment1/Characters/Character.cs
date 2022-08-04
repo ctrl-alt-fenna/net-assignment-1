@@ -10,6 +10,7 @@ namespace Assignment1
         public int Level { get; set; }
         public Inventory Inventory { get; set; }
         public PrimaryAttribute PrimaryAttribute { get; set; }
+        public PrimaryAttribute LevelUpPrimaryAttributes;
         public PrimaryAttribute TotalAttribute { get; set; }
         public Character(string name)
         {
@@ -19,15 +20,7 @@ namespace Assignment1
             Name = name;
         }
         public abstract void LevelUp();
-        public string Damage()
-        {
-            if (Inventory.ContainsType(Item.Slot.WeaponSlot))
-            {
-                Weapon inventoryWeapon = (Weapon)(Inventory.GetItem(Item.Slot.WeaponSlot));
-                return ("Damaged opponent for " + inventoryWeapon.DPS());
-            }
-            else throw new InvalidActionException("No weapon found in inventory");
-        }
+        public abstract double Damage();
         public string EquipItem(Item item)
         {
             try

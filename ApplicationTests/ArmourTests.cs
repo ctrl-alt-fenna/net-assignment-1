@@ -1,23 +1,24 @@
 ﻿using Assignment1.CustomExceptions;
 using TestData;
-namespace Assignment1Tests
+namespace ApplicationTests
 {
+    [Collection("B_Armour Tests")]
     public class ArmourTests
     {
         #region Character/Armour Test Data
         public static IEnumerable<object[]> InvalidType_CharacterData()
         {
             yield return new object[] { TestingCharacters.mageGandalf, BasicLevelTestingArmour.testingLegsLeather };
-            yield return new object[] { TestingCharacters.warriorHercules, BasicLevelTestingArmour.testingHeadCloth };
             yield return new object[] { TestingCharacters.rangerRobin, BasicLevelTestingArmour.testingHeadPlate };
             yield return new object[] { TestingCharacters.rogueJohn, BasicLevelTestingArmour.testingHeadCloth };
+            yield return new object[] { TestingCharacters.warriorHercules, BasicLevelTestingArmour.testingHeadCloth };
         }
         public static IEnumerable<object[]> InvalidLevel_CharacterData()
         {
-            yield return new object[] { TestingCharacters.mageGandalf, HighLevelTestingArmour.epicHeadCloth};
-            yield return new object[] { TestingCharacters.warriorHercules, HighLevelTestingArmour.epicHeadPlate };
+            yield return new object[] { TestingCharacters.mageGandalf, HighLevelTestingArmour.epicHeadCloth };
             yield return new object[] { TestingCharacters.rangerRobin, HighLevelTestingArmour.epicLegsLeather };
             yield return new object[] { TestingCharacters.rogueJohn, HighLevelTestingArmour.epicBodyMail };
+            yield return new object[] { TestingCharacters.warriorHercules, HighLevelTestingArmour.epicHeadPlate };
         }
         #endregion
         [Theory]
