@@ -5999,11 +5999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
+      "projectUniqueName": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ConsoleRPGTests\\ConsoleRPGTests.csproj",
       "projectName": "ConsoleRPGTests",
-      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\ConsoleRPGTests.csproj",
+      "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ConsoleRPGTests\\ConsoleRPGTests.csproj",
       "packagesPath": "C:\\Users\\fenna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ApplicationTests\\obj\\",
+      "outputPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ConsoleRPGTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
