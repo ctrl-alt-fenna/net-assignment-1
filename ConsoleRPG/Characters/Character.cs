@@ -12,7 +12,7 @@ namespace Assignment1
         /// <summary>
         /// Base Stats for any given character
         /// </summary>
-        public PrimaryAttribute PrimaryAttribute { get; set; }
+        public PrimaryAttribute PrimaryAttribute { get; set;}
         /// <summary>
         /// The LevelUp stats for any given character to add once a character levels up
         /// </summary>

@@ -7,6 +7,7 @@ namespace Assignment1.MainGame.Levels
         public static bool IsRunning = false;
         protected static string UserName = "username";
         protected static Character user = new Mage(UserName);
+        
         /// <summary>
         /// Initiates a new game if User wants to play or exits
         /// </summary>
@@ -61,14 +62,13 @@ namespace Assignment1.MainGame.Levels
 #pragma warning disable CS8601 // Possible null reference assignment.
             UserName = Console.ReadLine();
 #pragma warning restore CS8601 // Possible null reference assignment.
-            if (UserName == null) return false;
             Console.Clear();
             Console.WriteLine("Username is now " + UserName);
             // User picks characterclass based on printed options
             Console.WriteLine("What class do you wish to be? (Enter 0 to exit)");
             ShowClassOptions();
 #pragma warning disable CS8604 // Possible null reference argument.
-            int userClass = Int32.Parse(Console.ReadLine());
+            int userClass = int.Parse(Console.ReadLine());
 #pragma warning restore CS8604 // Possible null reference argument.
             // Checks if user wants to exit character creation
             if (userClass == 0) return false;
@@ -79,30 +79,40 @@ namespace Assignment1.MainGame.Levels
                 Console.WriteLine("INVALID INPUT: What class do you wish to be?");
                 ShowClassOptions();
 #pragma warning disable CS8604 // Possible null reference argument.
-                userClass = Int32.Parse(Console.ReadLine());
+                userClass = int.Parse(Console.ReadLine());
 #pragma warning restore CS8604 // Possible null reference argument.
+
             }
             // Sets up character with UserName and class selected by user
             switch (userClass)
             {
                 case 1:
                     {
+#pragma warning disable CS8604 // Possible null reference argument.
                         user = new Mage(UserName);
+#pragma warning restore CS8604 // Possible null reference argument.
                         return true;
+                        
                     }
                 case 2:
                     {
+#pragma warning disable CS8604 // Possible null reference argument.
                         user = new Ranger(UserName);
+#pragma warning restore CS8604 // Possible null reference argument.
                         return true;
                     }
                 case 3:
                     {
+#pragma warning disable CS8604 // Possible null reference argument.
                         user = new Rogue(UserName);
+#pragma warning restore CS8604 // Possible null reference argument.
                         return true;
                     }
                 case 4:
                     {
+#pragma warning disable CS8604 // Possible null reference argument.
                         user = new Warrior(UserName);
+#pragma warning restore CS8604 // Possible null reference argument.
                         return true;
                     }
                 // Should never be reached, but C# wants return from all paths

@@ -1,10 +1,11 @@
 ﻿using Assignment1.CustomExceptions;
 using Assignment1.Equipment;
+using Assignment1.Characters;
 namespace Assignment1.MainGame.Levels
 {
     public class Level1
     {
-        public static Character user = new Assignment1.Characters.Mage("John");
+        public static Character user = new Mage("username");
         public static bool equipedItem = false;
         public static void LevelOne(Character c)
         {
@@ -15,7 +16,7 @@ namespace Assignment1.MainGame.Levels
                 Console.WriteLine("\nIt's dangerous to go alone! Take this:\n");
                 while (!equipedItem)
                 {
-                    equipedItem = EquipedWeapon();
+                    equipedItem = EquipedItem();
                 }
                 CreateEncounters(1);
                 Thread.Sleep(2000);
@@ -50,21 +51,15 @@ namespace Assignment1.MainGame.Levels
                 }
             }
         }
-        /// <summary>
-        /// Method to print out enemy encounters (in a very basic form)
-        /// </summary>
-        /// <param name="iteration">Used to check which enemy to 'spawn'</param>
         public static void CreateEncounters(int iteration)
         {
             Console.Clear();
             user.CharacterSheet();
-            // Thread.Sleep() are used here so screen doesn't print out too fast for people to read
             if (iteration == 1)
             {
                 double ghoulHealth = RandomCreation.EnemyCreation.EnemyHealth();
                 Console.WriteLine("Dangerous ghoul encountered.... his current health is " + ghoulHealth);
                 Thread.Sleep(1000);
-                // Keep attacking until enemy dies
                 while (ghoulHealth > 0)
                 {
                     Console.WriteLine("You attack with all your might...\n");
@@ -76,11 +71,10 @@ namespace Assignment1.MainGame.Levels
                 Console.WriteLine(user.Name + " defeated the Ghoul!\n");
             }
             else if (iteration == 2)
-            {
+            { 
                 double ogreHealth = RandomCreation.EnemyCreation.EnemyHealth();
                 Console.WriteLine("With a few scratches, " + user.Name + " encountered a scary Ogre...'GET OUT OF MY SWAMP' he screams! His current health is " + ogreHealth);
-                Thread.Sleep(1500);
-                // Keep attacking until enemy dies.
+                Thread.Sleep(1000);
                 while (ogreHealth > 0)
                 {
                     Console.WriteLine("You attack with all your might...\n");
@@ -92,48 +86,36 @@ namespace Assignment1.MainGame.Levels
                 Console.WriteLine(user.Name + " defeated the scary Ogre!\n");
             }
         }
-        /// <summary>
-        /// A method to check if user has equipped a weapon (required to continue to first encounter)
-        /// </summary>
-        /// <returns>true if weapon was succesfully equiped, false if ther was an exception along the way</returns>
-        public static bool EquipedWeapon()
+        public static bool EquipedItem()
         {
             Weapon weapon = RandomCreation.ItemCreation.CreateWeapon(user);
             Console.WriteLine(weapon.ItemName + ": " + weapon.DPS() + " DPS");
             Console.WriteLine("Do you wish to equip this? Y/N");
-            try
-            {
+
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                char userAns = Console.ReadLine()[0];
+            char userAns = Console.ReadLine()[0];
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-                if (userAns == 'N' || userAns == 'n')
+            if (userAns == 'N' || userAns == 'n')
+            {
+                Console.Clear();
+                user.CharacterSheet();
+                return EquipedItem();
+            }
+            if (userAns == 'Y' || userAns == 'y')
+            {
+                try
                 {
-                    Console.Clear();
-                    user.CharacterSheet();
-                    return EquipedWeapon();
+                    user.EquipItem(weapon);
+                    return true;
                 }
-                if (userAns == 'Y' || userAns == 'y')
+                catch (InvalidWeaponException ex)
                 {
-                    try
-                    {
-                        user.EquipItem(weapon);
-                        return true;
-                    }
-                    catch (InvalidWeaponException ex)
-                    {
-                        DealWithExceptions(ex);
-                        return false;
-                    }
-                }
-                else
-                {
+                    DealWithExceptions(ex);
                     return false;
                 }
             }
-            // Mostly reached if a parsing error occurs
-            catch (Exception ex)
+            else
             {
-                DealWithExceptions(ex);
                 return false;
             }
         }
@@ -145,40 +127,41 @@ namespace Assignment1.MainGame.Levels
         {
             Console.WriteLine("Enemy dropped armour:");
             Armour armour = RandomCreation.ItemCreation.CreateArmour(user);
-            // Print the armour with all the stats
             Console.WriteLine(armour.ItemName + ": " + armour.ArmourType +
                 ": \n +" + armour.PrimaryAttribute.Strength + " Strength, \n +" +
                 armour.PrimaryAttribute.Dexterity + " Dexterity, \n +" + armour.PrimaryAttribute.Intelligence + " Intelligence");
             Console.WriteLine("Do you wish to equip this armour? Y/N");
             try
             {
+
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                char userAns = Console.ReadLine()[0];
+            char userAns = Console.ReadLine()[0];
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-                // Reload new armour
-                if (userAns == 'N' || userAns == 'n')
-                {
-                    Console.Clear();
-                    user.CharacterSheet();
-                    return EquipedArmour();
-                }
-                // Check if user can equip current armour
-                else if (userAns == 'Y' || userAns == 'y')
-                {
-                    try
-                    {
-                        user.EquipItem(armour);
-                        return true;
-                    }
-                    catch (InvalidArmourException ex)
-                    {
-                        DealWithExceptions(ex);
-                        return false;
-                    }
-                }
-                else return false;
+            if (userAns == 'N' || userAns == 'n')
+            {
+                Console.Clear();
+                user.CharacterSheet();
+                return EquipedArmour();
             }
-            // Mostly reached if a parsing error occurs 
+            else if (userAns == 'Y' || userAns == 'y')
+            {
+                try
+                {
+                    user.EquipItem(armour);
+                    return true;
+                }
+                catch (InvalidArmourException ex)
+                {
+                    DealWithExceptions(ex);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            }
+            // If a parsing error occurs 
             catch (Exception ex)
             {
                 DealWithExceptions(ex);

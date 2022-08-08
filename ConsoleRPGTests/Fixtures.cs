@@ -1,6 +1,6 @@
-﻿using Assignment1.Attributes;
-using Assignment1.Characters;
+﻿using Assignment1.Characters;
 using Assignment1.Equipment;
+
 namespace Assignment1Tests
 {
     public static class Fixtures
@@ -38,7 +38,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -48,7 +48,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 10,
             ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Strength = 15
             }
@@ -58,7 +58,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Body,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -68,7 +68,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Legs,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -78,7 +78,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Dexterity = 5
             }
@@ -88,7 +88,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Body,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Dexterity = 5
             }
@@ -98,7 +98,7 @@ namespace Assignment1Tests
             ItemRequiredLevel = 1,
             ArmourSlot = Armour.ArmourSlots.Legs,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new PrimaryAttribute()
+            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
             {
                 Dexterity = 5
             }
