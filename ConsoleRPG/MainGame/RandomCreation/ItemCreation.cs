@@ -10,36 +10,36 @@ namespace Assignment1.MainGame.RandomCreation
 
         #region ITEM NAMES
         // These arrays can be used to randomly select an itemname
-        public static string[] axeNames = { "Lumberjacks beware...",
-                                     "Scares of anyone by it's weight",
-                                     "Need some lumber?",
-                                     "Heavy... and strong!"};
-        public static string[] bowNames = { "A string on a stick!",
-                                     "Precise in the right hands",
-                                     "Bullseye...",
-                                     "Repurposeable as a harp!"};
-        public static string[] daggerNames = { "Size may be bigger in person",
-                                        "Can be used in the kitchen too!",
-                                        "Not allowed for stabbing!",
-                                        "Hide it, slice it!"};
-        public static string[] hammerNames = { "Even Thor is scared of this one!",
-                                        "A hammer, but not for carpentry...",
-                                        "Beware of your thumbs!",
-                                        "Heavy to hold, easy to love"};
-        public static string[] staffNames = { "A magical staff for magical fights",
-                                       "Swing it around and see them crumble...",
-                                       "Magic is in the air...",
-                                       "Only for authorized personnel"};
-        public static string[] swordNames = { "A heavy sword",
-                                       "Might secretly be a kitchenknife",
-                                       "Taken from a stone",
-                                       "Knights love it, crooks hate it!",
-                                       "Not allowed in stores!"};
-        public static string[] wandNames = { "Wait.. Isn't this just a stick?",
-                                      "Glorified twig, magical inside!",
-                                      "Do not wave around with proper certifications!!",
-                                      "Deadly and small",
-                                      "Laquered firewood with magical powers"};
+        public static string[] axeNames = { "Lumberjacks beware... (AXE)",
+                                     "Scares of anyone by it's weight (AXE)",
+                                     "Need some lumber? (AXE)",
+                                     "Heavy... and strong! (AXE)"};
+        public static string[] bowNames = { "A string on a stick! (BOW)",
+                                     "Precise in the right hands (BOW)",
+                                     "Bullseye... (BOW)",
+                                     "Repurposeable as a harp! (BOW)"};
+        public static string[] daggerNames = { "Size may be bigger in person (DAGGER)",
+                                        "Can be used in the kitchen too! (DAGGER)",
+                                        "Not allowed for stabbing! (DAGGER)",
+                                        "Hide it, slice it! (DAGGER)"};
+        public static string[] hammerNames = { "Even Thor is scared of this one! (HAMMER)",
+                                        "A hammer, but not for carpentry... (HAMMER)",
+                                        "Beware of your thumbs! (HAMMER)",
+                                        "Heavy to hold, easy to love (HAMMER)"};
+        public static string[] staffNames = { "A magical staff for magical fights (STAFF)",
+                                       "Swing it around and see them crumble... (STAFF)",
+                                       "Magic is in the air... (STAFF)",
+                                       "Only for authorized personnel (STAFF)"};
+        public static string[] swordNames = { "A heavy sword (SWORD)",
+                                       "Might secretly be a kitchenknife (SWORD)",
+                                       "Taken from a stone (SWORD)",
+                                       "Knights love it, crooks hate it! (SWORD)",
+                                       "Not allowed in stores! (SWORD)"};
+        public static string[] wandNames = { "Wait.. Isn't this just a stick? (WAND)",
+                                      "Glorified twig, magical inside! (WAND)",
+                                      "Do not wave around with proper certifications!! (WAND)",
+                                      "Deadly and small (WAND)",
+                                      "Laquered firewood with magical powers (WAND)"};
         #endregion
         /// <summary>
         /// Function to create random weapon for user
@@ -52,7 +52,6 @@ namespace Assignment1.MainGame.RandomCreation
             // The requiredLevel is between 1 and the current userLevel because there is currently
             // no way to store items that might be equipped later
             int reqLevel = Math.Min(random.Next(1, user.Level), 100);
-            Console.WriteLine(reqLevel);
             // attacksPerSecond and damage are based on constants declared above
             double attacksPerSecond = random.Next(1, MAX_DAMAGE);
             double damage = random.Next(1, MAX_ATTACKS_PER_SECOND);
@@ -60,7 +59,7 @@ namespace Assignment1.MainGame.RandomCreation
             int type = random.Next(0, 7);
             return new Weapon()
             {
-                ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
+                ItemName = axeNames[(random.Next(0, axeNames.Length))],
                 ItemRequiredLevel = reqLevel,
                 ItemSlot = Item.Slot.WeaponSlot,
                 WeaponType = (Weapon.WeaponTypes)type,
