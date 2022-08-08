@@ -27,6 +27,8 @@ namespace Assignment1
         /// <param name="name">String of username</param>
         public Character(string name)
         {
+            PrimaryAttribute = new PrimaryAttribute();
+            LevelUpPrimaryAttributes = new PrimaryAttribute();
             TotalAttribute = PrimaryAttribute;
             Inventory = new Inventory();
             Level = 1;
@@ -48,7 +50,7 @@ namespace Assignment1
         {
             StringBuilder sb = new StringBuilder(".........................\nCharacter Sheet:\n", 255);
             sb.Append(Name + ": Level " + Level + '\n');
-            sb.Append("Strength: Base " + PrimaryAttribute.Strength + " + " + (TotalAttribute.Strength - PrimaryAttribute.Strength) + " (Equipment Bonus) \n");
+            _ = sb.Append("Strength: Base " + PrimaryAttribute.Strength + " + " + (TotalAttribute.Strength - PrimaryAttribute.Strength) + " (Equipment Bonus) \n");
             sb.Append("Dexterity: Base " + PrimaryAttribute.Dexterity + " + " + (TotalAttribute.Dexterity - PrimaryAttribute.Dexterity) + " (Equipment Bonus) \n");
             sb.Append("Intelligence: Base " + PrimaryAttribute.Intelligence + " + " + (TotalAttribute.Intelligence - PrimaryAttribute.Intelligence) + " (Equipment Bonus) \n");
             sb.Append("Damage: " + Damage() + "\n.........................");

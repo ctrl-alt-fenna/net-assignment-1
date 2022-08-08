@@ -4,7 +4,7 @@ namespace Assignment1.MainGame.Levels
 {
     public class Level1
     {
-        public static Character user;
+        public static Character user = new Assignment1.Characters.Mage("John");
         public static bool equipedItem = false;
         public static void LevelOne(Character c)
         {
@@ -34,7 +34,9 @@ namespace Assignment1.MainGame.Levels
                 user.LevelUp();
                 user.CharacterSheet();
                 Console.WriteLine("Go on to the next level? Y/N");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 char userAns = Console.ReadLine()[0];
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 Console.Clear();
                 if (userAns == 'Y' || userAns == 'y')
                 {
@@ -101,7 +103,9 @@ namespace Assignment1.MainGame.Levels
             Console.WriteLine("Do you wish to equip this? Y/N");
             try
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 char userAns = Console.ReadLine()[0];
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 if (userAns == 'N' || userAns == 'n')
                 {
                     Console.Clear();
@@ -148,7 +152,9 @@ namespace Assignment1.MainGame.Levels
             Console.WriteLine("Do you wish to equip this armour? Y/N");
             try
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 char userAns = Console.ReadLine()[0];
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 // Reload new armour
                 if (userAns == 'N' || userAns == 'n')
                 {

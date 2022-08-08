@@ -52,6 +52,7 @@ namespace Assignment1.MainGame.RandomCreation
             // The requiredLevel is between 1 and the current userLevel because there is currently
             // no way to store items that might be equipped later
             int reqLevel = Math.Min(random.Next(1, user.Level), 100);
+            Console.WriteLine(reqLevel);
             // attacksPerSecond and damage are based on constants declared above
             double attacksPerSecond = random.Next(1, MAX_DAMAGE);
             double damage = random.Next(1, MAX_ATTACKS_PER_SECOND);

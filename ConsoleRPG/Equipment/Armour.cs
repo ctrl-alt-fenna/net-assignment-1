@@ -54,6 +54,7 @@ namespace Assignment1.Equipment
         }
         public Armour()
         {
+            PrimaryAttribute = new PrimaryAttribute();
             ItemSlot = Slot.ArmourSlot;
         }
 

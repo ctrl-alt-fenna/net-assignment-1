@@ -5,9 +5,8 @@ namespace Assignment1.MainGame.Levels
     public class StartUp
     {
         public static bool IsRunning = false;
-        protected static string UserName;
-        protected static Character user;
-
+        protected static string UserName = "username";
+        protected static Character user = new Mage(UserName);
         /// <summary>
         /// Initiates a new game if User wants to play or exits
         /// </summary>
@@ -17,7 +16,9 @@ namespace Assignment1.MainGame.Levels
             Console.WriteLine("Welcome to my RPG!\n ...............\nDo you want to start the game? Y/N");
             try
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 char userAns = Console.ReadLine()[0];
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 if (userAns == 'Y' || userAns == 'y') RunGame();
                 else
                 {
@@ -57,13 +58,18 @@ namespace Assignment1.MainGame.Levels
         {
             // Setup charactername
             Console.WriteLine("What name do you wish to go by?");
+#pragma warning disable CS8601 // Possible null reference assignment.
             UserName = Console.ReadLine();
+#pragma warning restore CS8601 // Possible null reference assignment.
+            if (UserName == null) return false;
             Console.Clear();
             Console.WriteLine("Username is now " + UserName);
             // User picks characterclass based on printed options
             Console.WriteLine("What class do you wish to be? (Enter 0 to exit)");
             ShowClassOptions();
-            int userClass = int.Parse(Console.ReadLine());
+#pragma warning disable CS8604 // Possible null reference argument.
+            int userClass = Int32.Parse(Console.ReadLine());
+#pragma warning restore CS8604 // Possible null reference argument.
             // Checks if user wants to exit character creation
             if (userClass == 0) return false;
             // User entered wrong input
@@ -72,8 +78,9 @@ namespace Assignment1.MainGame.Levels
                 Console.Clear();
                 Console.WriteLine("INVALID INPUT: What class do you wish to be?");
                 ShowClassOptions();
-                userClass = int.Parse(Console.ReadLine());
-
+#pragma warning disable CS8604 // Possible null reference argument.
+                userClass = Int32.Parse(Console.ReadLine());
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             // Sets up character with UserName and class selected by user
             switch (userClass)
@@ -82,25 +89,21 @@ namespace Assignment1.MainGame.Levels
                     {
                         user = new Mage(UserName);
                         return true;
-                        break;
                     }
                 case 2:
                     {
                         user = new Ranger(UserName);
                         return true;
-                        break;
                     }
                 case 3:
                     {
                         user = new Rogue(UserName);
                         return true;
-                        break;
                     }
                 case 4:
                     {
                         user = new Warrior(UserName);
                         return true;
-                        break;
                     }
                 // Should never be reached, but C# wants return from all paths
                 default:
