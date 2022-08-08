@@ -5979,8 +5979,8 @@
     },
     "ConsoleRPG/1.0.0": {
       "type": "project",
-      "path": "../Assignment1/ConsoleRPG.csproj",
-      "msbuildProject": "../Assignment1/ConsoleRPG.csproj"
+      "path": "../ConsoleRPG/ConsoleRPG.csproj",
+      "msbuildProject": "../ConsoleRPG/ConsoleRPG.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6026,6 +6026,9 @@
           "projectReferences": {
             "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj": {
               "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\Assignment1\\ConsoleRPG.csproj"
+            },
+            "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ConsoleRPG\\ConsoleRPG.csproj": {
+              "projectPath": "C:\\Users\\fenna\\Documenten\\.NET Experis Academy\\.NET Course\\Assignments\\Assignment\\ConsoleRPG\\ConsoleRPG.csproj"
             }
           }
         }

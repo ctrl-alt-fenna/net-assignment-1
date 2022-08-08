@@ -1,4 +1,6 @@
-﻿namespace ApplicationTests
+﻿using Assignment1.Attributes;
+using Assignment1.Characters;
+namespace ApplicationTests
 {
     public class CharacterTests
     {

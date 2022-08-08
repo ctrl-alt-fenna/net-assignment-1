@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Assignment1\ConsoleRPG.csproj" />
+    <ProjectReference Include="..\ConsoleRPG\ConsoleRPG.csproj" />
   </ItemGroup>
 
 </Project>

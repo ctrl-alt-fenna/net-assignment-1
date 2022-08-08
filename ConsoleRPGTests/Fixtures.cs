@@ -1,4 +1,7 @@
-﻿namespace Assignment1Tests
+﻿using Assignment1.Equipment;
+using Assignment1.Characters;
+using Assignment1.Attributes;
+namespace Assignment1Tests
 {
     public static class Fixtures
     {
@@ -33,9 +36,9 @@
         public static Armour basePlateHead() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Head,
+            ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -43,9 +46,9 @@
         public static Armour expertPlateHead() => new Armour()
         {
             ItemRequiredLevel = 10,
-            ArmourSlot = Item.ArmourSlots.Head,
+            ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Strength = 15
             }
@@ -53,9 +56,9 @@
         public static Armour basePlateBody() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Body,
+            ArmourSlot = Armour.ArmourSlots.Body,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -63,9 +66,9 @@
         public static Armour basePlateLegs() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Legs,
+            ArmourSlot = Armour.ArmourSlots.Legs,
             ArmourType = Armour.ArmourTypes.Plate,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Strength = 5
             }
@@ -73,9 +76,9 @@
         public static Armour baseClothHead() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Head,
+            ArmourSlot = Armour.ArmourSlots.Head,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Dexterity = 5
             }
@@ -83,9 +86,9 @@
         public static Armour baseClothBody() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Body,
+            ArmourSlot = Armour.ArmourSlots.Body,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Dexterity = 5
             }
@@ -93,9 +96,9 @@
         public static Armour baseClothLegs() => new Armour()
         {
             ItemRequiredLevel = 1,
-            ArmourSlot = Item.ArmourSlots.Legs,
+            ArmourSlot = Armour.ArmourSlots.Legs,
             ArmourType = Armour.ArmourTypes.Cloth,
-            PrimaryAttribute = new Assignment1.Attributes.PrimaryAttribute()
+            PrimaryAttribute = new PrimaryAttribute()
             {
                 Dexterity = 5
             }
