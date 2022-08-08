@@ -3,6 +3,13 @@ namespace Assignment1.MainGame.RandomCreation
 {
     public class ItemCreation
     {
+        // Variables for random item creation
+        static Random random = new Random();
+        const int MAX_DAMAGE = 25;
+        const int MAX_ATTACKS_PER_SECOND = 15;
+
+        #region ITEM NAMES
+        // These arrays can be used to randomly select an itemname
         public static string[] axeNames = { "Lumberjacks beware...",
                                      "Scares of anyone by it's weight",
                                      "Need some lumber?",
@@ -33,6 +40,7 @@ namespace Assignment1.MainGame.RandomCreation
                                       "Do not wave around with proper certifications!!",
                                       "Deadly and small",
                                       "Laquered firewood with magical powers"};
+        #endregion
         /// <summary>
         /// Function to create random weapon for user
         /// </summary>
@@ -40,101 +48,24 @@ namespace Assignment1.MainGame.RandomCreation
         /// <returns>A weapon with randomized stats like type, requiredLevel and damage</returns>
         public static Weapon CreateWeapon(Character user)
         {
-            Random random = new Random();
-            int reqLevel = Math.Min(random.Next(1, user.Level + 1), 100);
-            double attacksPerSecond = random.Next(1, 15);
-            double damage = random.Next(1, 10);
+            // Math.Min() so that the highest level an item can be is 100.
+            // The requiredLevel is between 1 and the current userLevel because there is currently
+            // no way to store items that might be equipped later
+            int reqLevel = Math.Min(random.Next(1, user.Level), 100);
+            // attacksPerSecond and damage are based on constants declared above
+            double attacksPerSecond = random.Next(1, MAX_DAMAGE);
+            double damage = random.Next(1, MAX_ATTACKS_PER_SECOND);
+            // Random WeaponType to access enum
             int type = random.Next(0, 7);
-            switch (type)
+            return new Weapon()
             {
-                case 0:
-                    return new Weapon()
-                    {
-                        ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Axe,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 1:
-                    return new Weapon()
-                    {
-                        ItemName = bowNames[(random.Next(0, bowNames.Length))] + " (bow)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Bow,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 2:
-                    return new Weapon()
-                    {
-                        ItemName = daggerNames[(random.Next(0, daggerNames.Length))] + " (dagger)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Dagger,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 3:
-                    return new Weapon()
-                    {
-                        ItemName = hammerNames[(random.Next(0, hammerNames.Length))] + " (hammer)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Hammer,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 4:
-                    return new Weapon()
-                    {
-                        ItemName = staffNames[(random.Next(0, staffNames.Length))] + " (staff)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Staff,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 5:
-                    return new Weapon()
-                    {
-                        ItemName = swordNames[(random.Next(0, swordNames.Length))] + " (sword)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Sword,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                case 6:
-                    return new Weapon()
-                    {
-                        ItemName = wandNames[(random.Next(0, wandNames.Length))] + " (wand)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Wand,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-                    break;
-                default:
-                    return new Weapon()
-                    {
-                        ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
-                        ItemRequiredLevel = reqLevel,
-                        ItemSlot = Item.Slot.WeaponSlot,
-                        WeaponType = Weapon.WeaponTypes.Axe,
-                        AttacksPerSecond = attacksPerSecond,
-                        BaseDamage = damage,
-                    };
-            }
+                ItemName = axeNames[(random.Next(0, axeNames.Length))] + " (axe)",
+                ItemRequiredLevel = reqLevel,
+                ItemSlot = Item.Slot.WeaponSlot,
+                WeaponType = (Weapon.WeaponTypes)type,
+                AttacksPerSecond = attacksPerSecond,
+                BaseDamage = damage,
+            };
         }
         /// <summary>
         /// A function to create random armour for the user to equip
@@ -143,11 +74,15 @@ namespace Assignment1.MainGame.RandomCreation
         /// <returns>A piece of armour with randomized stats, like requiredLevel, type and primaryAttributes</returns>
         public static Armour CreateArmour(Character user)
         {
-            Random random = new Random();
-            int reqLevel = Math.Min(random.Next(1, user.Level + 1), 100);
-            int strengthAdd = random.Next(1, 5);
-            int dexterityAdd = random.Next(1, 5);
-            int intelligenceAdd = random.Next(1, 5);
+            // Math.Min() so the max level is 100, or between 1 and the current userlevel as there is currently
+            // no way to store items to equip later
+            int reqLevel = Math.Min(random.Next(1, user.Level), 100);
+            // Random PrimaryAttributes to add to the armour (between 1 and userLevel + 3
+            // so it is not too overpowered but still stacks with userlevel)
+            int strengthAdd = random.Next(1, user.Level + 3);
+            int dexterityAdd = random.Next(1, user.Level + 3);
+            int intelligenceAdd = random.Next(1, user.Level + 3);
+
             int type = random.Next(0, 4);
             int armourSlot = random.Next(1, 4);
             return new Armour()

@@ -7,11 +7,37 @@ namespace Assignment1.MainGame.Levels
         public static bool IsRunning = false;
         protected static string UserName;
         protected static Character user;
+
+        /// <summary>
+        /// Initiates a new game if User wants to play or exits
+        /// </summary>
+        /// <exception cref="Exception">Thrown if there was an error processing the user input</exception>
+        public static void StartGame()
+        {
+            Console.WriteLine("Welcome to my RPG!\n ...............\nDo you want to start the game? Y/N");
+            try
+            {
+                char userAns = Console.ReadLine()[0];
+                if (userAns == 'Y' || userAns == 'y') RunGame();
+                else
+                {
+                    Console.WriteLine("Exiting.....");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Main game driver code
+        /// </summary>
         public static void RunGame()
         {
             IsRunning = true;
             while (IsRunning)
             {
+                // Clears "Start Game" question.
                 Console.Clear();
                 bool completedChar = CreateCharacter();
                 // Wait for character to be created succesfully before entering level 1
@@ -23,6 +49,10 @@ namespace Assignment1.MainGame.Levels
                 else IsRunning = false;
             }
         }
+        /// <summary>
+        /// Method to create character based on user's choice for character class. 
+        /// </summary>
+        /// <returns>true if user succesfully selected the options, false if they wished to exit by entering 0</returns>
         public static bool CreateCharacter()
         {
             // Setup charactername
@@ -77,6 +107,7 @@ namespace Assignment1.MainGame.Levels
                     return false;
             }
         }
+        // Simplifies the printing of classes and cleans up code
         public static void ShowClassOptions()
         {
             Console.WriteLine("1. Mage: High Intelligence but low Strength and Dexterity");

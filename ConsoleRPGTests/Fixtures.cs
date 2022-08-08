@@ -1,7 +1,4 @@
-﻿using Assignment1.Characters;
-using Assignment1.Equipment;
-
-namespace Assignment1Tests
+﻿namespace Assignment1Tests
 {
     public static class Fixtures
     {

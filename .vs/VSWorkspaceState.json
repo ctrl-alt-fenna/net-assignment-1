@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\ConsoleRPG",
     "\\ConsoleRPGTests"
   ],
-  "SelectedNode": "\\ConsoleRPG.sln",
+  "SelectedNode": "\\ConsoleRPG\\ConsoleRPG.csproj",
   "PreviewInSolutionExplorer": false
 }

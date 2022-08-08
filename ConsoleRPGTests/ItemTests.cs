@@ -1,6 +1,3 @@
-using Assignment1.Characters;
-using Assignment1.CustomExceptions;
-using Assignment1.Equipment;
 using Assignment1Tests;
 
 namespace ApplicationTests;

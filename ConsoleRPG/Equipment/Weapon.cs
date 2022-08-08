@@ -11,13 +11,13 @@ namespace Assignment1.Equipment
         public double AttacksPerSecond { get; set; }
         public enum WeaponTypes
         {
-            Axe,
-            Bow,
-            Dagger,
-            Hammer,
-            Staff,
-            Sword,
-            Wand
+            Axe = 0,
+            Bow = 1,
+            Dagger = 2,
+            Hammer = 3,
+            Staff = 4,
+            Sword = 5,
+            Wand = 6
         }
         // Randomize weaponstats on every creation
         public Weapon() : base()

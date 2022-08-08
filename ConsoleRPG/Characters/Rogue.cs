@@ -22,9 +22,8 @@ namespace Assignment1.Characters
         }
         public override void LevelUp()
         {
-            TotalAttribute -= PrimaryAttribute;
             PrimaryAttribute += LevelUpPrimaryAttributes;
-            TotalAttribute += PrimaryAttribute;
+            TotalAttribute += LevelUpPrimaryAttributes;
             Level++;
         }
         public override double Damage()

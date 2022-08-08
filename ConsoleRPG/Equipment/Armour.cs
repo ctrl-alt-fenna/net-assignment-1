@@ -6,12 +6,20 @@ namespace Assignment1.Equipment
     {
         public PrimaryAttribute PrimaryAttribute { get; set; }
         public ArmourTypes ArmourType { get; set; }
+        // The type of armour and the given slot it should be in
+        public ArmourSlots? ArmourSlot { get; set; }
         public enum ArmourTypes
         {
             Cloth,
             Leather,
             Mail,
             Plate
+        }
+        public enum ArmourSlots
+        {
+            Body = 1,
+            Head = 2,
+            Legs = 3
         }
         /// <summary>
         /// Function to check if current charactertype matches allowed type for given armourtype

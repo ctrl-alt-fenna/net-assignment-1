@@ -37,7 +37,7 @@ namespace Assignment1
         /// </summary>
         public abstract void LevelUp();
         /// <summary>
-        /// Function to return Damage current character can induce based on armour, weapon and character stats (Implemented differenlty for each Character class)
+        /// Function to return Damage of character. Formula: (WeaponDPS (1 if no weapon equipped) * (1 + MainPrimaryAttribute / 100)) 
         /// </summary>
         /// <returns>Double of damage character can induce</returns>
         public abstract double Damage();
